@@ -1,0 +1,16 @@
+{
+  "name": "pstack-mirror",
+  "owner": {
+    "name": "MendelDamian"
+  },
+  "metadata": {
+    "description": "Auto-synced mirror of pstack from cursor/plugins"
+  },
+  "plugins": [
+    {
+      "name": "pstack",
+      "source": "./pstack",
+      "description": "poteto's rigorous agent workflows, principles and review skills (mirrored from cursor/plugins)"
+    }
+  ]
+}
