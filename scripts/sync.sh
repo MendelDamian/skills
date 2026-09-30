@@ -1,23 +1,32 @@
 #!/usr/bin/env bash
-# Mirror upstream pstack/ into ./pstack, then layer ./overlay on top.
+# For each mirrored plugin in sources.json: copy upstream into plugins/<name>, layer overlay/plugins/<name> on top,
+# and on change bump its patch version and record the upstream SHA in upstream-lock.json.
+# Plugins not listed in sources.json are never touched.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
-git clone --depth 1 --quiet https://github.com/cursor/plugins "$tmp/up"
 
-rsync -a --delete --exclude .git "$tmp/up/pstack/" ./pstack/
-rsync -a ./overlay/ ./
+jq -c '.[]' sources.json | while read -r src; do
+  name=$(jq -r .name <<<"$src")
+  repo=$(jq -r .repo <<<"$src")
+  path=$(jq -r .path <<<"$src")
+  clone="$tmp/${repo//\//__}"
 
-# On any change to the mirrored content: bump the patch version and record the SHA.
-# Unrelated upstream commits leave both untouched, so no empty syncs.
-if [ -n "$(git status --porcelain -- pstack)" ]; then
-  manifest=overlay/pstack/.claude-plugin/plugin.json
-  IFS=. read -r major minor patch < <(jq -r .version "$manifest")
-  version="$major.$minor.$((patch + 1))"
-  jq --arg v "$version" '.version = $v' "$manifest" > "$manifest.tmp" && mv "$manifest.tmp" "$manifest"
-  cp "$manifest" pstack/.claude-plugin/plugin.json
-  git -C "$tmp/up" rev-parse HEAD > UPSTREAM_COMMIT
-  echo "pstack changed; version $version"
-fi
+  [ -d "$clone" ] || git clone --depth 1 --quiet "https://github.com/$repo" "$clone"
+  sha=$(git -C "$clone" rev-parse HEAD)
+
+  rsync -a --delete --exclude .git "$clone/$path/" "plugins/$name/"
+  [ -d "overlay/plugins/$name" ] && rsync -a "overlay/plugins/$name/" "plugins/$name/"
+
+  if [ -n "$(git status --porcelain -- "plugins/$name")" ]; then
+    manifest="overlay/plugins/$name/.claude-plugin/plugin.json"
+    IFS=. read -r major minor patch < <(jq -r .version "$manifest")
+    version="$major.$minor.$((patch + 1))"
+    jq --arg v "$version" '.version = $v' "$manifest" > "$manifest.tmp" && mv "$manifest.tmp" "$manifest"
+    cp "$manifest" "plugins/$name/.claude-plugin/plugin.json"
+    jq --arg n "$name" --arg s "$sha" '.[$n] = $s' upstream-lock.json > upstream-lock.json.tmp && mv upstream-lock.json.tmp upstream-lock.json
+    echo "$name v$version ($repo@${sha:0:7})" | tee -a "${SYNC_LOG:-/dev/null}"
+  fi
+done

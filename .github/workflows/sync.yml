@@ -23,8 +23,10 @@ jobs:
       - name: Install Claude Code CLI
         run: npm install -g @anthropic-ai/claude-code
 
-      - name: Sync upstream pstack
+      - name: Sync upstream plugins
         run: scripts/sync.sh
+        env:
+          SYNC_LOG: ${{ runner.temp }}/sync.log
 
       - name: Validate
         run: scripts/validate.sh
@@ -38,5 +40,5 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Sync pstack v$(jq -r .version pstack/.claude-plugin/plugin.json) from cursor/plugins@$(cut -c1-7 UPSTREAM_COMMIT)"
+          git commit -m "Sync $(paste -sd ';' "$RUNNER_TEMP/sync.log" | sed 's/;/; /g')"
           git push
