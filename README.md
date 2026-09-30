@@ -32,7 +32,9 @@ This symlinks every plugin's `skills/*` and `agents/*.md` into `~/.config/openco
 ## Layout
 
 - `plugins/<name>/`: one plugin per folder. Mirrored ones are overwritten on every sync, so never edit them by hand. Your own plugins are never touched by the sync.
-- `sources.json`: which plugins are mirrored, as `{name, repo, path}`.
+- `sources.json`: which plugins are mirrored. Each entry is `{name, repo, path, exclude?, allowModelInvocation?}`:
+  - `exclude`: globs relative to the plugin root (e.g. `skills/recall`, `skills/*-verification-skill`). They aren't synced, and already-synced copies are deleted.
+  - `allowModelInvocation`: globs matched against skill directory names (e.g. `principle-*`, or `*` for all). Matching skills lose upstream's `disable-model-invocation: true`, so Claude can load them on its own. The rest stay manual (slash command only).
 - `overlay/plugins/<name>/`: files layered on top of a mirrored plugin after each sync. It must contain `.claude-plugin/plugin.json` with a `version`, which sync bumps whenever the plugin changes.
 - `upstream-lock.json`: the upstream SHA last synced for each mirrored plugin.
 - `scripts/sync.sh`, `scripts/validate.sh`: run by `.github/workflows/sync.yml`, and can be run locally.

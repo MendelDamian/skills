@@ -1,3 +1,21 @@
 [
-  { "name": "pstack", "repo": "cursor/plugins", "path": "pstack" }
+  {
+    "name": "pstack",
+    "repo": "cursor/plugins",
+    "path": "pstack",
+    "exclude": [
+      ".cursor-plugin",
+      "automations",
+      "skills/setup-pstack",
+      "skills/recall",
+      "skills/reflect",
+      "skills/automate-me",
+      "skills/make-bot-ui"
+    ],
+    "allowModelInvocation": [
+      "poteto-mode", "principle-*",
+      "how", "why", "teach", "architect", "tdd", "blast-radius",
+      "interrogate", "arena", "swarm", "no-comments", "technical-writing", "unslop"
+    ]
+  }
 ]
