@@ -5,6 +5,11 @@ My Claude Code plugin marketplace (`mendel`): my own plugins plus mirrors of ups
 | Plugin | Source |
 |---|---|
 | `pstack` | [cursor/plugins/pstack](https://github.com/cursor/plugins/tree/main/pstack) (mirrored) |
+| `mattpocock-skills` | [mattpocock/skills](https://github.com/mattpocock/skills) (mirrored, curated subset) |
+| `show-me` | [humanlayer/skills](https://github.com/humanlayer/skills) (mirrored) |
+| `improve-claude-md` | [humanlayer/skills](https://github.com/humanlayer/skills) (mirrored) |
+| `visual-pr` | [humanlayer/skills](https://github.com/humanlayer/skills) (mirrored) |
+| `emil-skills` | [emilkowalski/skills](https://github.com/emilkowalski/skills) (vendored subset, own plugin) |
 
 ## Install (Claude Code)
 

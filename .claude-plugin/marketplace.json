@@ -11,6 +11,31 @@
       "name": "pstack",
       "source": "./plugins/pstack",
       "description": "poteto's rigorous agent workflows, principles and review skills (mirrored from cursor/plugins)"
+    },
+    {
+      "name": "mattpocock-skills",
+      "source": "./plugins/mattpocock-skills",
+      "description": "Matt Pocock's spec/ticket, implementation, domain-modelling and grilling skills (curated mirror of mattpocock/skills)"
+    },
+    {
+      "name": "show-me",
+      "source": "./plugins/show-me",
+      "description": "Explain the current topic with concise diagrams, code-shape sketches and focused HTML artifacts (mirrored from humanlayer/skills)"
+    },
+    {
+      "name": "improve-claude-md",
+      "source": "./plugins/improve-claude-md",
+      "description": "Rewrite a CLAUDE.md using <important if> blocks to improve instruction adherence (mirrored from humanlayer/skills)"
+    },
+    {
+      "name": "visual-pr",
+      "source": "./plugins/visual-pr",
+      "description": "Create or update a PR with a concise visual outline for reviewers (mirrored from humanlayer/skills)"
+    },
+    {
+      "name": "emil-skills",
+      "source": "./plugins/emil-skills",
+      "description": "Emil Kowalski's design-engineering and motion skills (vendored subset of emilkowalski/skills)"
     }
   ]
 }

@@ -1,0 +1,20 @@
+{
+  "name": "emil-skills",
+  "version": "0.0.1",
+  "description": "Emil Kowalski's design-engineering and motion skills (vendored subset): animation build/review/audit, Apple design foundations, native-feeling mobile UI.",
+  "author": {
+    "name": "Emil Kowalski",
+    "url": "https://emilkowal.ski"
+  },
+  "homepage": "https://github.com/emilkowalski/skills",
+  "repository": "https://github.com/emilkowalski/skills",
+  "license": "MIT",
+  "keywords": [
+    "animation",
+    "motion",
+    "design",
+    "ui",
+    "apple-design",
+    "react"
+  ]
+}
