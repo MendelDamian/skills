@@ -60,18 +60,19 @@
     ]
   },
   {
-    "name": "show-me",
+    "name": "humanlayer",
     "repo": "humanlayer/skills",
-    "path": "plugins/show-me"
+    "paths": [
+      { "from": "plugins/show-me/skills/show-me", "to": "skills/show-me" },
+      { "from": "plugins/improve-claude-md/skills/improve-claude-md", "to": "skills/improve-claude-md" },
+      { "from": "plugins/visual-pr/skills/visual-pr", "to": "skills/visual-pr" },
+      { "from": "plugins/narrow-react-prop-types/skills/narrow-react-prop-types", "to": "skills/narrow-react-prop-types" }
+    ]
   },
   {
-    "name": "improve-claude-md",
-    "repo": "humanlayer/skills",
-    "path": "plugins/improve-claude-md"
-  },
-  {
-    "name": "visual-pr",
-    "repo": "humanlayer/skills",
-    "path": "plugins/visual-pr"
+    "name": "openclaw",
+    "repo": "openclaw/openclaw",
+    "path": ".agents/skills/test-audit",
+    "dest": "skills/test-audit"
   }
 ]

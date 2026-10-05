@@ -1,0 +1,18 @@
+{
+  "name": "humanlayer",
+  "version": "0.0.1",
+  "description": "HumanLayer's Claude Code skills: show-me, improve-claude-md, visual-pr and narrow-react-prop-types (mirrored from humanlayer/skills)",
+  "author": {
+    "name": "humanlayer",
+    "email": "support@humanlayer.dev"
+  },
+  "repository": "https://github.com/humanlayer/skills",
+  "license": "MIT",
+  "keywords": [
+    "humanlayer",
+    "show-me",
+    "visual-pr",
+    "improve-claude-md",
+    "narrow-react-prop-types"
+  ]
+}

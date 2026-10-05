@@ -6,9 +6,8 @@ My Claude Code plugin marketplace (`mendel`): my own plugins plus mirrors of ups
 |---|---|
 | `pstack` | [cursor/plugins/pstack](https://github.com/cursor/plugins/tree/main/pstack) (mirrored) |
 | `mattpocock-skills` | [mattpocock/skills](https://github.com/mattpocock/skills) (mirrored, curated subset) |
-| `show-me` | [humanlayer/skills](https://github.com/humanlayer/skills) (mirrored) |
-| `improve-claude-md` | [humanlayer/skills](https://github.com/humanlayer/skills) (mirrored) |
-| `visual-pr` | [humanlayer/skills](https://github.com/humanlayer/skills) (mirrored) |
+| `humanlayer` | [humanlayer/skills](https://github.com/humanlayer/skills) (mirrored): `show-me`, `improve-claude-md`, `visual-pr`, `narrow-react-prop-types` |
+| `openclaw` | [openclaw/openclaw](https://github.com/openclaw/openclaw) (mirrored): `test-audit` |
 | `emil-skills` | [emilkowalski/skills](https://github.com/emilkowalski/skills) (vendored subset, own plugin) |
 
 ## Install (Claude Code)
@@ -37,8 +36,9 @@ This symlinks every plugin's `skills/*` and `agents/*.md` into `~/.config/openco
 ## Layout
 
 - `plugins/<name>/`: one plugin per folder. Mirrored ones are overwritten on every sync, so never edit them by hand. Your own plugins are never touched by the sync.
-- `sources.json`: which plugins are mirrored. Each entry is `{name, repo, path, exclude?, allowModelInvocation?}`:
-  - `exclude`: globs relative to the plugin root (e.g. `skills/recall`, `skills/*-verification-skill`). They aren't synced, and already-synced copies are deleted.
+- `sources.json`: which plugins are mirrored. Each entry is `{name, repo, path, dest?, exclude?, allowModelInvocation?}`, or `{name, repo, paths: [{from, to}], allowModelInvocation?}` to gather several upstream directories into one plugin:
+  - `path`/`dest`: copy `<repo>/<path>` into `plugins/<name>/<dest>` (`dest` defaults to the plugin root). `paths` copies each `<repo>/<from>` into `plugins/<name>/<to>` — how `humanlayer` merges four upstream skills into one namespace.
+  - `exclude`: globs relative to `path` (e.g. `skills/recall`, `skills/*-verification-skill`). They aren't synced, and already-synced copies are deleted.
   - `allowModelInvocation`: globs matched against skill directory names (e.g. `principle-*`, or `*` for all). Matching skills lose upstream's `disable-model-invocation: true`, so Claude can load them on its own. The rest stay manual (slash command only).
 - `overlay/plugins/<name>/`: files layered on top of a mirrored plugin after each sync. It must contain `.claude-plugin/plugin.json` with a `version`, which sync bumps whenever the plugin changes.
 - `upstream-lock.json`: the upstream SHA last synced for each mirrored plugin.

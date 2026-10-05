@@ -1,0 +1,16 @@
+{
+  "name": "openclaw",
+  "version": "0.0.1",
+  "description": "OpenClaw's test-audit skill: authoring gate plus audit workflow for low-value, implementation-coupled or duplicative tests (mirrored from openclaw/openclaw)",
+  "author": {
+    "name": "OpenClaw Foundation"
+  },
+  "repository": "https://github.com/openclaw/openclaw",
+  "license": "MIT",
+  "keywords": [
+    "openclaw",
+    "testing",
+    "test-audit",
+    "code-review"
+  ]
+}

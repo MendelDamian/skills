@@ -18,19 +18,14 @@
       "description": "Matt Pocock's spec/ticket, implementation, domain-modelling and grilling skills (curated mirror of mattpocock/skills)"
     },
     {
-      "name": "show-me",
-      "source": "./plugins/show-me",
-      "description": "Explain the current topic with concise diagrams, code-shape sketches and focused HTML artifacts (mirrored from humanlayer/skills)"
+      "name": "humanlayer",
+      "source": "./plugins/humanlayer",
+      "description": "HumanLayer's show-me, improve-claude-md, visual-pr and narrow-react-prop-types skills, namespaced as /humanlayer:<skill> (mirrored from humanlayer/skills)"
     },
     {
-      "name": "improve-claude-md",
-      "source": "./plugins/improve-claude-md",
-      "description": "Rewrite a CLAUDE.md using <important if> blocks to improve instruction adherence (mirrored from humanlayer/skills)"
-    },
-    {
-      "name": "visual-pr",
-      "source": "./plugins/visual-pr",
-      "description": "Create or update a PR with a concise visual outline for reviewers (mirrored from humanlayer/skills)"
+      "name": "openclaw",
+      "source": "./plugins/openclaw",
+      "description": "OpenClaw's test-audit skill: authoring gate plus audit workflow for low-value, implementation-coupled or duplicative tests (mirrored from openclaw/openclaw)"
     },
     {
       "name": "emil-skills",
