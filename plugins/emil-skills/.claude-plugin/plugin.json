@@ -1,7 +1,7 @@
 {
   "name": "emil-skills",
-  "version": "0.0.1",
-  "description": "Emil Kowalski's design-engineering and motion skills (vendored subset): animation build/review/audit, Apple design foundations, native-feeling mobile UI.",
+  "version": "0.0.2",
+  "description": "Emil Kowalski's design-engineering and motion skills (vendored subset): animation build/review/audit, Apple design foundations, native-feeling mobile UI, and adversarial edge-case stress testing.",
   "author": {
     "name": "Emil Kowalski",
     "url": "https://emilkowal.ski"
