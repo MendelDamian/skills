@@ -9,13 +9,24 @@
       "skills/setup-pstack",
       "skills/recall",
       "skills/reflect",
-      "skills/automate-me",
       "skills/make-bot-ui"
     ],
     "allowModelInvocation": [
-      "poteto-mode", "principle-*",
-      "how", "why", "teach", "architect", "tdd", "blast-radius",
-      "interrogate", "arena", "swarm", "no-comments", "technical-writing", "unslop"
+      "poteto-mode",
+      "principle-*",
+      "how",
+      "why",
+      "teach",
+      "architect",
+      "tdd",
+      "blast-radius",
+      "interrogate",
+      "arena",
+      "swarm",
+      "no-comments",
+      "technical-writing",
+      "unslop",
+      "automate-me"
     ]
   },
   {
@@ -63,10 +74,22 @@
     "name": "humanlayer",
     "repo": "humanlayer/skills",
     "paths": [
-      { "from": "plugins/show-me/skills/show-me", "to": "skills/show-me" },
-      { "from": "plugins/improve-claude-md/skills/improve-claude-md", "to": "skills/improve-claude-md" },
-      { "from": "plugins/visual-pr/skills/visual-pr", "to": "skills/visual-pr" },
-      { "from": "plugins/narrow-react-prop-types/skills/narrow-react-prop-types", "to": "skills/narrow-react-prop-types" }
+      {
+        "from": "plugins/show-me/skills/show-me",
+        "to": "skills/show-me"
+      },
+      {
+        "from": "plugins/improve-claude-md/skills/improve-claude-md",
+        "to": "skills/improve-claude-md"
+      },
+      {
+        "from": "plugins/visual-pr/skills/visual-pr",
+        "to": "skills/visual-pr"
+      },
+      {
+        "from": "plugins/narrow-react-prop-types/skills/narrow-react-prop-types",
+        "to": "skills/narrow-react-prop-types"
+      }
     ]
   },
   {
