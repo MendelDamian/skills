@@ -8,7 +8,6 @@
       "automations",
       "skills/setup-pstack",
       "skills/recall",
-      "skills/reflect",
       "skills/make-bot-ui"
     ],
     "allowModelInvocation": [
@@ -97,5 +96,21 @@
     "repo": "openclaw/openclaw",
     "path": ".agents/skills/test-audit",
     "dest": "skills/test-audit"
+  },
+  {
+    "name": "emil-skills",
+    "repo": "emilkowalski/skills",
+    "path": "skills",
+    "dest": "skills",
+    "exclude": [
+      "animate-expo",
+      "animation-performance",
+      "ask-sonner",
+      "choreograph",
+      "gestures",
+      "pick-ui-library",
+      "remove-animations",
+      "write-swift"
+    ]
   }
 ]

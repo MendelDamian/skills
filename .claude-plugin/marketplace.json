@@ -30,7 +30,7 @@
     {
       "name": "emil-skills",
       "source": "./plugins/emil-skills",
-      "description": "Emil Kowalski's design-engineering and motion skills (vendored subset of emilkowalski/skills)"
+      "description": "Emil Kowalski's design-engineering and motion skills (curated mirror of emilkowalski/skills)"
     }
   ]
 }

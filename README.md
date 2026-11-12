@@ -8,7 +8,7 @@ My Claude Code plugin marketplace (`mendel`): my own plugins plus mirrors of ups
 | `mattpocock-skills` | [mattpocock/skills](https://github.com/mattpocock/skills) (mirrored, curated subset) |
 | `humanlayer` | [humanlayer/skills](https://github.com/humanlayer/skills) (mirrored): `show-me`, `improve-claude-md`, `visual-pr`, `narrow-react-prop-types` |
 | `openclaw` | [openclaw/openclaw](https://github.com/openclaw/openclaw) (mirrored): `test-audit` |
-| `emil-skills` | [emilkowalski/skills](https://github.com/emilkowalski/skills) (vendored subset, own plugin) |
+| `emil-skills` | [emilkowalski/skills](https://github.com/emilkowalski/skills) (mirrored, curated subset) |
 
 ## Install (Claude Code)
 
